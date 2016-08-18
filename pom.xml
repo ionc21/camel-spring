@@ -14,6 +14,10 @@
 	<groupId>com.pluralsight.camel</groupId>
 	<artifactId>order-fulfillment-processor</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	
+	<properties>
+		<output.directory>com.pluralsight.orderfulfillment.generated</output.directory>
+	</properties>
 
     <dependencies>
 
@@ -33,9 +37,8 @@
 			<artifactId>camel-sql</artifactId>
 			<version>2.13.2</version>	
 		</dependency>
-
-
-    	<!-- SPRING FRAMEWORK -->
+		
+	   	<!-- SPRING FRAMEWORK -->
 		
         <!-- Spring framework core dependency minus commons logging in favor of SLF4J -->
         <dependency>
@@ -287,6 +290,17 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.10.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.2.7</version>
+		</dependency>
     </dependencies>
 
     <build>
@@ -376,6 +390,24 @@
 					<wtpversion>2.0</wtpversion>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<packageName>${output.directory}</packageName>
+				</configuration>
+			</plugin>
+			
 		</plugins>
 		<pluginManagement>
 			<plugins>
