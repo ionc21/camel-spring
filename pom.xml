@@ -301,6 +301,16 @@
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.2.7</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+			<version>5.10.0</version>			
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.10.0</version>
+		</dependency>
     </dependencies>
 
     <build>
@@ -409,10 +419,10 @@
 			</plugin>
 			
 		</plugins>
-		<pluginManagement>
+		<!-- <pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
+				This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself.
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -466,7 +476,7 @@
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement>
+		</pluginManagement> -->
 		<finalName>ofp</finalName>
     </build>
     <packaging>war</packaging>
