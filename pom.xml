@@ -17,68 +17,106 @@
 	
 	<properties>
 		<output.directory>com.pluralsight.orderfulfillment.generated</output.directory>
+		<org.eclipse.jetty.version>8.1.8.v20121106</org.eclipse.jetty.version>
 	</properties>
 
     <dependencies>
+    
+		<!-- ActiveMQ -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+			<version>5.10.0</version>
+		</dependency>
 
 		<!-- Apache Camel -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
-			<version>2.13.2</version>
+			<version>2.14.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-javaconfig</artifactId>
-			<version>2.13.2</version>
+			<version>2.14.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-sql</artifactId>
-			<version>2.13.2</version>	
+			<version>2.14.1</version>
 		</dependency>
-		
-	   	<!-- SPRING FRAMEWORK -->
-		
-        <!-- Spring framework core dependency minus commons logging in favor of SLF4J -->
-        <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-core</artifactId>
-            <version>4.0.4.RELEASE</version>
-        	<exclusions>
-        		<exclusion>
-        			<groupId>commons-logging</groupId>
-        			<artifactId>commons-logging</artifactId>
-        		</exclusion>
-        	</exclusions>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-http4</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		<!-- Added for Module 8 -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-csv</artifactId>
+			<version>2.14.1</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-ftp</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+
+		<!-- Google -->		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+
+
+		<!-- SPRING FRAMEWORK -->
+
+		<!-- Spring framework core dependency minus commons logging in favor of 
+			SLF4J -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>4.0.4.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
 		<!-- Spring aspects -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
-            <version>4.0.4.RELEASE</version>
+			<version>4.0.4.RELEASE</version>
 		</dependency>
 
 		<!-- Spring web -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-            <version>4.0.4.RELEASE</version>
+			<version>4.0.4.RELEASE</version>
 		</dependency>
 
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-            <version>4.0.4.RELEASE</version>
+			<version>4.0.4.RELEASE</version>
 		</dependency>
 
 		<!-- Spring JDBC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-            <version>4.0.4.RELEASE</version>
+			<version>4.0.4.RELEASE</version>
 		</dependency>
 
 		<!-- Spring Data JPA -->
@@ -92,23 +130,23 @@
 					<groupId>org.springframework</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency> 		
-        <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-aop</artifactId>
-            <version>4.0.4.RELEASE</version>
 		</dependency>
-        <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-context</artifactId>
-            <version>4.0.4.RELEASE</version>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.0.4.RELEASE</version>
 		</dependency>
-        <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-tx</artifactId>
-            <version>4.0.4.RELEASE</version>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.0.4.RELEASE</version>
 		</dependency>
-	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>4.0.4.RELEASE</version>
+		</dependency>
+
 		<!-- HIBERNATE -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -139,14 +177,14 @@
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 			<version>1.0.0.Final</version>
 		</dependency>
-            
+
 		<!-- Spring ORM -->
-        <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-            <version>4.0.4.RELEASE</version>
+			<version>4.0.4.RELEASE</version>
 		</dependency>
-		
+
 		<!-- LOGGING -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -201,7 +239,7 @@
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
-		</dependency>		
+		</dependency>
 
 		<!-- Java Servlet -->
 		<dependency>
@@ -220,7 +258,7 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
- 		</dependency>
+		</dependency>
 		<!-- Jackson JSON mapper -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -252,11 +290,23 @@
 			<version>2.3</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.2.6</version>
+		</dependency>
+
 		<!-- TESTING -->
-        <dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.10.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-            <version>4.0.4.RELEASE</version>
+			<version>4.0.4.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -266,9 +316,9 @@
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
-		          <groupId>org.hamcrest</groupId>
-		          <artifactId>hamcrest-core</artifactId>
-		        </exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-core</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -286,31 +336,94 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test-spring</artifactId>
-			<version>2.13.2</version>
+			<version>2.14.1</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-cxf</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		
+		  <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-transports-http-jetty</artifactId>
+	        <version>2.7.6</version>
+		  </dependency>
+	      <dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>2.7.6</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<version>10.10.2.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.2.7</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-camel</artifactId>
-			<version>5.10.0</version>			
-		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-pool</artifactId>
-			<version>5.10.0</version>
-		</dependency>
+
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-rt-transports-jms</artifactId>
+	      	<version>2.7.4</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-rt-bindings-xml</artifactId>
+	      	<version>2.7.4</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-rt-bindings-soap</artifactId>
+	      	<version>2.7.4</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+	      	<version>2.7.2</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.camel</groupId>
+	      	<artifactId>camel-cxf-transport</artifactId>
+	      	<version>2.14.1</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-rt-rs-extension-providers</artifactId>
+	      	<version>2.7.4</version>
+	      	<scope>test</scope>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-testutils</artifactId>
+	      	<version>2.7.4</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.camel</groupId>
+	      	<artifactId>camel-jetty</artifactId>
+	      	<version>2.10.0</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.httpcomponents</groupId>
+	      	<artifactId>httpclient</artifactId>
+	      	<version>4.3.3</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-rt-ws-rm</artifactId>
+	      	<version>2.7.4</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-rt-core</artifactId>
+	      	<version>2.7.4</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.cxf</groupId>
+	      	<artifactId>cxf-api</artifactId>
+	      	<version>2.7.4</version>
+	      </dependency>
+	      <dependency>
+	      	<groupId>org.apache.camel</groupId>
+	      	<artifactId>camel-core</artifactId>
+	      	<version>2.14.1</version>
+	      </dependency>
     </dependencies>
 
     <build>
@@ -416,13 +529,12 @@
 				<configuration>
 					<packageName>${output.directory}</packageName>
 				</configuration>
-			</plugin>
-			
+			</plugin>		
+			 			
 		</plugins>
-		<!-- <pluginManagement>
+		<pluginManagement>
 			<plugins>
-				This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself.
+				
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -476,7 +588,7 @@
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement> -->
+		</pluginManagement>
 		<finalName>ofp</finalName>
     </build>
     <packaging>war</packaging>
